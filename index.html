@@ -3,59 +3,143 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escola Proherf | Educação para o Futuro</title>
+    <title>Portal Escolar | Excelência e Cuidado</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
-        <div class="logo">
-            <h1>Escola Proherf</h1>
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="sua-logo-aqui.png" alt="Logo Escola">
+                <span>EducaRosa</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#calendario">Calendário</a></li>
+                    <li><a href="#destaques">Alunos</a></li>
+                    <li><button onclick="abrirModal()" class="btn-login">Área do Aluno</button></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Início</a></li>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#cursos">Cursos</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <div id="home" class="hero">
-        <h1>Bem-vindo à Escola Proherf</h1>
-        <p>Transformando o presente, construindo o futuro.</p>
+    <section id="sobre" class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Nossa História, Seu Futuro</h1>
+                <p>Fundada com o propósito de transformar vidas através da educação, nossa instituição se destaca pelo acolhimento e pela busca constante pela excelência acadêmica. Localizada em um ambiente seguro e inspirador, focamos no desenvolvimento integral do aluno, unindo tecnologia, artes e esportes em um currículo humanizado.</p>
+                <p>Aqui, cada estudante é protagonista de sua jornada, apoiado por uma equipe pedagógica altamente qualificada e uma infraestrutura pensada no bem-estar.</p>
+            </div>
+            <div class="hero-image">
+                <img src="foto-da-escola.jpg" alt="Fachada da Escola" class="img-escola">
+            </div>
+        </div>
+    </section>
+
+    <section id="calendario" class="section-padding">
+        <div class="container">
+            <h2 class="title-center">Calendário Acadêmico 2024</h2>
+            <div class="calendar-grid">
+                <div class="month-card">
+                    <h3>Maio</h3>
+                    <ul>
+                        <li><span>01</span> Dia do Trabalho</li>
+                        <li><span>15</span> Reunião de Pais</li>
+                        <li><span>22</span> Feira de Ciências</li>
+                    </ul>
+                </div>
+                <div class="month-card">
+                    <h3>Junho</h3>
+                    <ul>
+                        <li><span>12</span> Festa Junina</li>
+                        <li><span>25</span> Início das Provas</li>
+                        <li><span>30</span> Encerramento Semestre</li>
+                    </ul>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <section id="destaques" class="section-padding pink-bg">
+        <div class="container">
+            <h2 class="title-center">Alunos de Destaque</h2>
+            <div class="student-grid">
+                <div class="student-card">
+                    <div class="avatar"></div>
+                    <h4>Ana Beatriz</h4>
+                    <p>Medalhista de Ouro na Olimpíada de Matemática.</p>
+                </div>
+                <div class="student-card">
+                    <div class="avatar"></div>
+                    <h4>Carlos Eduardo</h4>
+                    <p>Destaque em Liderança e Projetos Sociais.</p>
+                </div>
+                <div class="student-card">
+                    <div class="avatar"></div>
+                    <h4>Mariana Silva</h4>
+                    <p>Vencedora do Concurso Nacional de Redação.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="chat-container" id="chatBot">
+        <div class="chat-header">Assistente Virtual 🤖</div>
+        <div class="chat-box" id="chatBox">
+            <p>Olá! Como posso te ajudar hoje?</p>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Digite sua dúvida...">
+            <button onclick="askBot()">Enviar</button>
+        </div>
     </div>
 
-    <div class="container">
-        <section id="sobre">
-            <h2>Nossa Instituição</h2>
-            <p>A Escola Proherf é referência em ensino de qualidade, unindo tecnologia e ética.</p>
-        </section>
-
-        <section id="cursos">
-            <h2>Níveis de Ensino</h2>
-            <ul>
-                <li><strong>Ensino Fundamental</strong></li>
-                <li><strong>Ensino Médio</strong></li>
-                <li><strong>Atividades Extracurriculares</strong></li>
-            </ul>
-        </section>
-
-        <section id="contato">
-            <h2>Fale Conosco</h2>
-            <form class="contact-form">
-                <input type="text" placeholder="Seu Nome" required>
-                <input type="email" placeholder="Seu E-mail" required>
-                <textarea rows="5" placeholder="Sua Mensagem"></textarea>
-                <button type="submit" class="btn">Enviar Mensagem</button>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="fecharModal()">&times;</span>
+            <h2>Acesse seu Portal</h2>
+            <form id="loginForm">
+                <input type="text" placeholder="Usuário/RA" required>
+                <input type="password" placeholder="Senha" required>
+                <button type="submit" class="btn-full">Entrar</button>
             </form>
-        </section>
+            <div id="userInfo" class="user-info hidden">
+                <p>Bem-vindo(a), <strong>Aluno(a) Exemplo</strong>!</p>
+                <p>Status: Matriculado | Turma: 3º A</p>
+            </div>
+        </div>
     </div>
 
-    <footer>
-        <p>&copy; 2024 Escola Proherf / Unidade Helena. Todos os direitos reservados.</p>
-    </footer>
+    <script>
+        // Lógica de Login Simples
+        const loginForm = document.getElementById('loginForm');
+        const userInfo = document.getElementById('userInfo');
 
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            loginForm.classList.add('hidden');
+            userInfo.classList.remove('hidden');
+        });
+
+        function abrirModal() { document.getElementById('loginModal').style.display = "block"; }
+        function fecharModal() { document.getElementById('loginModal').style.display = "none"; }
+
+        // Lógica do Bot
+        function askBot() {
+            const input = document.getElementById('userInput');
+            const box = document.getElementById('chatBox');
+            if(input.value !== "") {
+                box.innerHTML += `<p><strong>Você:</strong> ${input.value}</p>`;
+                setTimeout(() => {
+                    box.innerHTML += `<p><strong>Bot:</strong> Estou processando sua dúvida sobre "${input.value}". Em breve a secretaria entrará em contato.</p>`;
+                    box.scrollTop = box.scrollHeight;
+                }, 1000);
+                input.value = "";
+            }
+        }
+    </script>
 </body>
 </html>
